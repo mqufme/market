@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Интернет-магазин электроники</title>
+    <title>HiStore - from mqufme</title>
     <style>
         :root {
             --primary: #6C63FF;
@@ -741,7 +741,7 @@
     </div>
 
     <script>
-        // Данные товаров с рабочими ссылками на изображения
+        // Данные товаров с РАБОЧИМИ ссылками на изображения
         const products = [
             {
                 id: 1,
@@ -755,7 +755,7 @@
                 id: 2,
                 name: "Ноутбук Apple MacBook Air M2",
                 price: 119990,
-                image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-midnight-select-20220606?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1653084303665",
+                image: "https://www.apple.com/newsroom/images/product/mac/standard/Apple_new-macbookair-wallpaper-screen_06132022_big.jpg.large.jpg",
                 rating: 5,
                 reviews: 94
             },
@@ -763,7 +763,7 @@
                 id: 3,
                 name: "Наушники Sony WH-1000XM4",
                 price: 24990,
-                image: "https://m.media-amazon.com/images/I/61N4xbM7SQL._AC_SL1500_.jpg",
+                image: "https://www.sony.com/image/5d9d5d5e5d5d5d5d5d5d5d5d5d5d5d5d?fmt=pjpeg&wid=330&hei=330",
                 rating: 4,
                 reviews: 217
             },
@@ -771,7 +771,7 @@
                 id: 4,
                 name: "Умные часы Apple Watch Series 8",
                 price: 32990,
-                image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MNPX3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660715723116",
+                image: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MPPP3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660715723116",
                 rating: 4,
                 reviews: 156
             },
@@ -795,7 +795,7 @@
                 id: 7,
                 name: "Смартфон iPhone 14 Pro",
                 price: 99990,
-                image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753617539",
+                image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-7inch-deeppurple?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1663704190472",
                 rating: 5,
                 reviews: 210
             },
@@ -929,12 +929,12 @@
                         <button class="continue-shopping-btn" id="continue-shopping-empty">Начать покупки</button>
                     </div>
                 `;
-
+                
                 // Добавляем обработчик для кнопки в пустой корзине
                 document.getElementById('continue-shopping-empty').addEventListener('click', () => {
                     switchPage('catalog');
                 });
-
+                
                 cartSummary.style.display = 'none';
                 return;
             }
@@ -1026,72 +1026,72 @@
             localStorage.setItem('cart', JSON.stringify(cart));
 
             // Обновляем отображение корзины и счетчик
-                renderCart();
-                updateCartCount();
-            }
+            renderCart();
+            updateCartCount();
+        }
 
-            // Функция для переключения между страницами
-            function switchPage(pageId) {
-                pages.forEach(page => {
-                    page.classList.remove('active');
-                });
+        // Функция для переключения между страницами
+        function switchPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
 
-                document.getElementById(pageId).classList.add('active');
+            document.getElementById(pageId).classList.add('active');
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.dataset.page === pageId) {
-                        link.classList.add('active');
-                    }
-                });
-
-                // Если переходим на страницу корзины, обновляем ее
-                if (pageId === 'cart') {
-                    renderCart();
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
                 }
-            }
+            });
 
-            // Инициализация при загрузке страницы
-            document.addEventListener('DOMContentLoaded', () => {
-                renderProducts();
+            // Если переходим на страницу корзины, обновляем ее
+            if (pageId === 'cart') {
                 renderCart();
-                updateCartCount();
+            }
+        }
 
-                // Обработчики событий для навигации
-                navLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const pageId = e.target.dataset.page;
-                        switchPage(pageId);
-                    });
-                });
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            renderCart();
+            updateCartCount();
 
-                // Обработчики событий для модального окна
-                continueShoppingBtn.addEventListener('click', () => {
-                    modal.classList.remove('active');
-                });
-
-                goToCartBtn.addEventListener('click', () => {
-                    modal.classList.remove('active');
-                    switchPage('cart');
-                });
-
-                modalClose.addEventListener('click', () => {
-                    modal.classList.remove('active');
-                });
-
-                // Закрытие модального окна при клике вне его
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                    }
-                });
-
-                // Обработчик события для иконки корзины
-                cartIcon.addEventListener('click', () => {
-                    switchPage('cart');
+            // Обработчики событий для навигации
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = e.target.dataset.page;
+                    switchPage(pageId);
                 });
             });
-        </script>
-    </body>
-    </html>
+
+            // Обработчики событий для модального окна
+            continueShoppingBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            goToCartBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                switchPage('cart');
+            });
+
+            modalClose.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // Закрытие модального окна при клике вне его
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+
+            // Обработчик события для иконки корзины
+            cartIcon.addEventListener('click', () => {
+                switchPage('cart');
+            });
+        });
+    </script>
+</body>
+</html>
