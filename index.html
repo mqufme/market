@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HiStore</title>
+    <title>  HiStore</title>
     <style>
         :root {
             --primary: #6C63FF;
@@ -741,7 +741,7 @@
     </div>
 
     <script>
-        // Данные товаров с РАБОЧИМИ ссылками на изображения
+        // Данные товаров с рабочими ссылками на изображения
         const products = [
             {
                 id: 1,
@@ -755,7 +755,7 @@
                 id: 2,
                 name: "Ноутбук Apple MacBook Air 13 M2",
                 price: 119990,
-                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ16kd2laQ5muhxKHzUpa-qpPk3rf2tt_1ntg&s",
+                image: "https://app-world.ru/image/cache/catalog/import_yml/222/87/1-2-500x500.png",
                 rating: 5,
                 reviews: 94
             },
@@ -763,7 +763,7 @@
                 id: 3,
                 name: "Наушники Sony WH-1000XM4",
                 price: 24990,
-                image: "https://www.sony.ru/image/5d02da5df552836db894cead8a68f5f3?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiuwoq8PCUa8PdjM8R001Q5krQq4QfNSL74g&s",
                 rating: 4,
                 reviews: 217
             },
@@ -771,15 +771,15 @@
                 id: 4,
                 name: "Умные часы Apple Watch Series 8",
                 price: 32990,
-                image: "https://prostoreshop.ru/upload/iblock/f40/pbobwzb3ec2u4j08t64mwzch5dv8y2o8.jpg",
+                image: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MPPP3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1660715723116",
                 rating: 4,
                 reviews: 156
             },
             {
                 id: 5,
-                name: "Планшет Samsung Galaxy Tab S8",
+                name: "Apple Watch Series 10",
                 price: 54990,
-                image: "https://images.samsung.com/is/image/samsung/p6pim/ru/2202/gallery/ru-galaxy-tab-s8-sm-x700nzaaser-531072428?$650_519_PNG$",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBilnIsji6LZ5xqKK9pmWyX2tFHU5d8msgpA&s",
                 rating: 4,
                 reviews: 83
             },
@@ -790,22 +790,6 @@
                 image: "https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$1600px--t$",
                 rating: 5,
                 reviews: 342
-            },
-            {
-                id: 7,
-                name: "Смартфон iPhone 17 Pro",
-                price: 99990,
-                image: "https://sotohit.ru/d/iphone_17_pro_max_silver_2.png",
-                rating: 5,
-                reviews: 210
-            },
-            {
-                id: 8,
-                name: "Ноутбук ASUS ROG Zephyrus",
-                price: 149990,
-                image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSByaVs1EQD8WvCBeuNUquL0T8d1VfJGbAomqTWRbYtridxf06POgAGRum9vG40OQNe0fsrm8T_TLfdgjOnJBp0nnxIdIW1tt34jXQagXWg",
-                rating: 4,
-                reviews: 76
             }
         ];
 
@@ -843,7 +827,7 @@
 
                 productCard.innerHTML = `
                     <div class="product-image-container">
-                        <img class="product-image" src="${product.image}" alt="${product.name}" onerror="this.parentElement.innerHTML='<div class=\"image-placeholder\"><span>Изображение<br>не загружено</span></div>'">
+                        <img class="product-image" src="${product.image}" alt="${product.name}">
                     </div>
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
@@ -900,7 +884,7 @@
         function showModal(product) {
             modalProduct.innerHTML = `
                 <div class="modal-product-image-container">
-                    <img class="modal-product-image" src="${product.image}" alt="${product.name}" onerror="this.parentElement.innerHTML='<div class=\"image-placeholder\"><span>Изображение<br>не загружено</span></div>'">
+                    <img class="modal-product-image" src="${product.image}" alt="${product.name}">
                 </div>
                 <div class="modal-product-info">
                     <div class="modal-product-name">${product.name}</div>
@@ -952,7 +936,7 @@
 
                 cartItem.innerHTML = `
                     <div class="cart-item-image-container">
-                        <img class="cart-item-image" src="${item.image}" alt="${item.name}" onerror="this.parentElement.innerHTML='<div class=\"image-placeholder\"><span>Изображение<br>не загружено</span></div>'">
+                        <img class="cart-item-image" src="${item.image}" alt="${item.name}">
                     </div>
                     <div class="cart-item-details">
                         <div class="cart-item-name">${item.name}</div>
